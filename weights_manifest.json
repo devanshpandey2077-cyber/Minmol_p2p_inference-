@@ -1,0 +1,821 @@
+{
+  "format": 1,
+  "dtype": "float32-le",
+  "linear_layout": "out,in",
+  "params": 11040768,
+  "model_id": "ffd8b3fb0d196909551270482ad652c6c437328e1c3f6111b811687615933b4e",
+  "torch_version": "2.15.0+cpu",
+  "files": {
+    "weights.bin": {
+      "bytes": 44163072,
+      "sha256": "ffd8b3fb0d196909551270482ad652c6c437328e1c3f6111b811687615933b4e"
+    },
+    "part_a.bin": {
+      "bytes": 22473216,
+      "sha256": "3ce9518c635b0b7f27c6cafb4438319190fb06c885b148a6d899f411d04c95dc"
+    },
+    "part_b.bin": {
+      "bytes": 21689856,
+      "sha256": "558c53676a6cd1ffb16adcf4b4ffd6a7f3af17b91a2fac2dfd7966e366ed234c"
+    }
+  },
+  "tensors": [
+    {
+      "name": "tok_emb.weight",
+      "shape": [
+        256,
+        384
+      ],
+      "offset": 0,
+      "part": "part_a.bin",
+      "part_offset": 0,
+      "nbytes": 393216
+    },
+    {
+      "name": "pos_emb.weight",
+      "shape": [
+        512,
+        384
+      ],
+      "offset": 393216,
+      "part": "part_a.bin",
+      "part_offset": 393216,
+      "nbytes": 786432
+    },
+    {
+      "name": "blocks.0.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 1179648,
+      "part": "part_a.bin",
+      "part_offset": 1179648,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.0.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 1181184,
+      "part": "part_a.bin",
+      "part_offset": 1181184,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.0.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 1182720,
+      "part": "part_a.bin",
+      "part_offset": 1182720,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.0.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 2952192,
+      "part": "part_a.bin",
+      "part_offset": 2952192,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.0.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 2956800,
+      "part": "part_a.bin",
+      "part_offset": 2956800,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.0.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 3546624,
+      "part": "part_a.bin",
+      "part_offset": 3546624,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.0.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 3548160,
+      "part": "part_a.bin",
+      "part_offset": 3548160,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.0.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 3549696,
+      "part": "part_a.bin",
+      "part_offset": 3549696,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.0.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 3551232,
+      "part": "part_a.bin",
+      "part_offset": 3551232,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.0.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 5910528,
+      "part": "part_a.bin",
+      "part_offset": 5910528,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.0.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 5916672,
+      "part": "part_a.bin",
+      "part_offset": 5916672,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.0.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 8275968,
+      "part": "part_a.bin",
+      "part_offset": 8275968,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 8277504,
+      "part": "part_a.bin",
+      "part_offset": 8277504,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 8279040,
+      "part": "part_a.bin",
+      "part_offset": 8279040,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 8280576,
+      "part": "part_a.bin",
+      "part_offset": 8280576,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.1.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 10050048,
+      "part": "part_a.bin",
+      "part_offset": 10050048,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.1.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 10054656,
+      "part": "part_a.bin",
+      "part_offset": 10054656,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.1.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 10644480,
+      "part": "part_a.bin",
+      "part_offset": 10644480,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 10646016,
+      "part": "part_a.bin",
+      "part_offset": 10646016,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 10647552,
+      "part": "part_a.bin",
+      "part_offset": 10647552,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.1.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 10649088,
+      "part": "part_a.bin",
+      "part_offset": 10649088,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.1.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 13008384,
+      "part": "part_a.bin",
+      "part_offset": 13008384,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.1.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 13014528,
+      "part": "part_a.bin",
+      "part_offset": 13014528,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.1.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 15373824,
+      "part": "part_a.bin",
+      "part_offset": 15373824,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 15375360,
+      "part": "part_a.bin",
+      "part_offset": 15375360,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 15376896,
+      "part": "part_a.bin",
+      "part_offset": 15376896,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 15378432,
+      "part": "part_a.bin",
+      "part_offset": 15378432,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.2.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 17147904,
+      "part": "part_a.bin",
+      "part_offset": 17147904,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.2.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 17152512,
+      "part": "part_a.bin",
+      "part_offset": 17152512,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.2.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 17742336,
+      "part": "part_a.bin",
+      "part_offset": 17742336,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 17743872,
+      "part": "part_a.bin",
+      "part_offset": 17743872,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 17745408,
+      "part": "part_a.bin",
+      "part_offset": 17745408,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.2.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 17746944,
+      "part": "part_a.bin",
+      "part_offset": 17746944,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.2.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 20106240,
+      "part": "part_a.bin",
+      "part_offset": 20106240,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.2.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 20112384,
+      "part": "part_a.bin",
+      "part_offset": 20112384,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.2.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 22471680,
+      "part": "part_a.bin",
+      "part_offset": 22471680,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 22473216,
+      "part": "part_b.bin",
+      "part_offset": 0,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 22474752,
+      "part": "part_b.bin",
+      "part_offset": 1536,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 22476288,
+      "part": "part_b.bin",
+      "part_offset": 3072,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.3.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 24245760,
+      "part": "part_b.bin",
+      "part_offset": 1772544,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.3.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 24250368,
+      "part": "part_b.bin",
+      "part_offset": 1777152,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.3.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 24840192,
+      "part": "part_b.bin",
+      "part_offset": 2366976,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 24841728,
+      "part": "part_b.bin",
+      "part_offset": 2368512,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 24843264,
+      "part": "part_b.bin",
+      "part_offset": 2370048,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.3.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 24844800,
+      "part": "part_b.bin",
+      "part_offset": 2371584,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.3.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 27204096,
+      "part": "part_b.bin",
+      "part_offset": 4730880,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.3.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 27210240,
+      "part": "part_b.bin",
+      "part_offset": 4737024,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.3.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 29569536,
+      "part": "part_b.bin",
+      "part_offset": 7096320,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 29571072,
+      "part": "part_b.bin",
+      "part_offset": 7097856,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 29572608,
+      "part": "part_b.bin",
+      "part_offset": 7099392,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 29574144,
+      "part": "part_b.bin",
+      "part_offset": 7100928,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.4.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 31343616,
+      "part": "part_b.bin",
+      "part_offset": 8870400,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.4.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 31348224,
+      "part": "part_b.bin",
+      "part_offset": 8875008,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.4.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 31938048,
+      "part": "part_b.bin",
+      "part_offset": 9464832,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 31939584,
+      "part": "part_b.bin",
+      "part_offset": 9466368,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 31941120,
+      "part": "part_b.bin",
+      "part_offset": 9467904,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.4.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 31942656,
+      "part": "part_b.bin",
+      "part_offset": 9469440,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.4.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 34301952,
+      "part": "part_b.bin",
+      "part_offset": 11828736,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.4.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 34308096,
+      "part": "part_b.bin",
+      "part_offset": 11834880,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.4.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 36667392,
+      "part": "part_b.bin",
+      "part_offset": 14194176,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.ln1.weight",
+      "shape": [
+        384
+      ],
+      "offset": 36668928,
+      "part": "part_b.bin",
+      "part_offset": 14195712,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.ln1.bias",
+      "shape": [
+        384
+      ],
+      "offset": 36670464,
+      "part": "part_b.bin",
+      "part_offset": 14197248,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.qkv.weight",
+      "shape": [
+        1152,
+        384
+      ],
+      "offset": 36672000,
+      "part": "part_b.bin",
+      "part_offset": 14198784,
+      "nbytes": 1769472
+    },
+    {
+      "name": "blocks.5.qkv.bias",
+      "shape": [
+        1152
+      ],
+      "offset": 38441472,
+      "part": "part_b.bin",
+      "part_offset": 15968256,
+      "nbytes": 4608
+    },
+    {
+      "name": "blocks.5.proj.weight",
+      "shape": [
+        384,
+        384
+      ],
+      "offset": 38446080,
+      "part": "part_b.bin",
+      "part_offset": 15972864,
+      "nbytes": 589824
+    },
+    {
+      "name": "blocks.5.proj.bias",
+      "shape": [
+        384
+      ],
+      "offset": 39035904,
+      "part": "part_b.bin",
+      "part_offset": 16562688,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.ln2.weight",
+      "shape": [
+        384
+      ],
+      "offset": 39037440,
+      "part": "part_b.bin",
+      "part_offset": 16564224,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.ln2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 39038976,
+      "part": "part_b.bin",
+      "part_offset": 16565760,
+      "nbytes": 1536
+    },
+    {
+      "name": "blocks.5.fc1.weight",
+      "shape": [
+        1536,
+        384
+      ],
+      "offset": 39040512,
+      "part": "part_b.bin",
+      "part_offset": 16567296,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.5.fc1.bias",
+      "shape": [
+        1536
+      ],
+      "offset": 41399808,
+      "part": "part_b.bin",
+      "part_offset": 18926592,
+      "nbytes": 6144
+    },
+    {
+      "name": "blocks.5.fc2.weight",
+      "shape": [
+        384,
+        1536
+      ],
+      "offset": 41405952,
+      "part": "part_b.bin",
+      "part_offset": 18932736,
+      "nbytes": 2359296
+    },
+    {
+      "name": "blocks.5.fc2.bias",
+      "shape": [
+        384
+      ],
+      "offset": 43765248,
+      "part": "part_b.bin",
+      "part_offset": 21292032,
+      "nbytes": 1536
+    },
+    {
+      "name": "ln_f.weight",
+      "shape": [
+        384
+      ],
+      "offset": 43766784,
+      "part": "part_b.bin",
+      "part_offset": 21293568,
+      "nbytes": 1536
+    },
+    {
+      "name": "ln_f.bias",
+      "shape": [
+        384
+      ],
+      "offset": 43768320,
+      "part": "part_b.bin",
+      "part_offset": 21295104,
+      "nbytes": 1536
+    },
+    {
+      "name": "lm_head.weight",
+      "shape": [
+        256,
+        384
+      ],
+      "offset": 43769856,
+      "part": "part_b.bin",
+      "part_offset": 21296640,
+      "nbytes": 393216
+    }
+  ]
+}

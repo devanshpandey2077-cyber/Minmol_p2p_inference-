@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>HiveGPT · Two phones, one forward pass</title>
+    <style>
+        :root {
+            font-family: system-ui, sans-serif;
+            color: #edf2ff;
+            background: #0b1020;
+            color-scheme: dark
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0 auto;
+            max-width: 780px;
+            padding: 20px
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 4px
+        }
+
+        h2 {
+            font-size: 1.2rem
+        }
+
+        .muted,
+        small {
+            color: #a9b7d2
+        }
+
+        section {
+            background: #141d32;
+            border: 1px solid #293754;
+            border-radius: 18px;
+            padding: 18px;
+            margin: 16px 0
+        }
+
+        button {
+            background: #66e4bf;
+            color: #09261d;
+            border: 0;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            min-height: 48px;
+            cursor: pointer
+        }
+
+        button:disabled {
+            opacity: .4;
+            cursor: default
+        }
+
+        button.secondary {
+            background: #2b3b5d;
+            color: #fff
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .row>* {
+            flex: 1
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 6px
+        }
+
+        textarea,
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #0b1223;
+            color: #fff;
+            border: 1px solid #405174;
+            border-radius: 10px;
+            font: inherit
+        }
+
+        textarea {
+            min-height: 90px
+        }
+
+        input[type=range] {
+            padding: 0
+        }
+
+        canvas#qr {
+            display: block;
+            width: min(100%, 360px);
+            height: auto;
+            margin: 12px auto;
+            image-rendering: pixelated;
+            background: white
+        }
+
+        video {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain
+        }
+
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            font-size: 1rem;
+            line-height: 1.5
+        }
+
+        #status {
+            padding: 10px;
+            border-left: 4px solid #66e4bf
+        }
+
+        #metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        #metrics div {
+            background: #0b1223;
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        #metrics strong {
+            display: block;
+            font-size: 1.3rem
+        }
+
+        .error {
+            color: #ff9f9f
+        }
+
+        [hidden] {
+            display: none !important
+        }
+
+        summary {
+            cursor: pointer
+        }
+
+        a {
+            color: #66e4bf
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HiveGPT</h1>
+    <p class="muted">11,040,768 parameters · CPU · direct WebRTC · byte-level GPT</p>
+    <p id="status" role="status" aria-live="polite">Choose a phone role. Use the same Wi-Fi or hotspot.</p>
+    <section id="roles">
+        <div class="row"><button id="host">Host (Phone A)</button><button id="join">Join (Phone B)</button></div>
+        <p class="muted">A owns embeddings and layers 0–2. B owns layers 3–5 and the output head. Keep both screens
+            awake.</p>
+    </section>
+    <section id="pair" hidden>
+        <h2 id="roleTitle">Pair phones</h2>
+        <p id="weightStatus">Loading weights…</p>
+        <button id="makeOffer" hidden>Create offer</button>
+        <p class="muted">No STUN or TURN. Pair over a local network that allows device-to-device traffic. QR codes cycle
+            automatically; collect every frame.</p>
+        <div id="qrBox" hidden><canvas id="qr" aria-label="Pairing QR code"></canvas>
+            <p id="frameLabel"></p>
+            <div class="row"><button id="previous" class="secondary">Previous frame</button><button id="next"
+                    class="secondary">Next frame</button></div>
+        </div>
+        <label for="local">Your pairing text (send to the other phone)</label><textarea id="local" readonly
+            spellcheck="false"></textarea>
+        <button id="copy" class="secondary">Copy pairing text</button>
+        <label for="remote">Other phone’s pairing text</label><textarea id="remote"
+            placeholder="Paste the complete HG1… text here" spellcheck="false"></textarea>
+        <div class="row"><button id="apply">Use pasted text</button><button id="scan" class="secondary">Scan QR with
+                camera</button></div>
+        <video id="camera" playsinline muted hidden></video>
+        <p id="scanStatus"></p><button id="stopCamera" class="secondary" hidden>Stop camera</button>
+        <details>
+            <summary>Connection proof</summary>
+            <pre id="network">Not connected</pre><button id="inspect" class="secondary">Inspect ICE transport</button>
+        </details>
+    </section>
+    <section id="generation" hidden>
+        <h2>Generate together</h2>
+        <label for="prompt">Prompt (UTF-8 encoded to bytes)</label><textarea id="prompt">Hello</textarea>
+        <label for="temperature">Temperature: <span id="tempLabel">0.0 · greedy</span></label><input id="temperature"
+            type="range" min="0" max="2" step="0.1" value="0">
+        <label for="maxBytes">New bytes (prompt bytes + new bytes − 1 ≤ 512)</label><input id="maxBytes" type="number"
+            min="1" max="512" value="32">
+        <div class="row" style="margin-top:14px"><button id="generate" disabled>Generate</button><button id="benchmark"
+                class="secondary" disabled>Run benchmark · 128 bytes</button><button id="stop" class="secondary"
+                disabled>Stop</button></div>
+        <p id="runStatus" aria-live="polite"></p>
+        <div id="metrics">
+            <div><strong id="rate">—</strong>generated bytes/sec</div>
+            <div><strong id="aMs">—</strong>A compute ms/step</div>
+            <div><strong id="bMs">—</strong>B compute ms/step</div>
+            <div><strong id="rtt">—</strong>response round trip ms (includes B)</div>
+        </div>
+        <pre id="output" aria-live="polite"></pre>
+        <p>Generated-byte FNV-1a: <code id="checksum">811c9dc5</code></p>
+        <details>
+            <summary>Generated byte values</summary>
+            <pre id="byteValues"></pre>
+        </details>
+    </section>
+    <section id="selfTest" hidden>
+        <h2>TEST ONLY · full model on this device</h2>
+        <p>Explicit diagnostic mode. Normal Host/Join mode never loads both halves.</p><button id="testButton">Load both
+            halves and compare reference</button>
+        <pre id="testResult"></pre>
+    </section>
+    <p class="muted">Seed-42 default random weights demonstrate distributed execution; they do not produce trained
+        language. Invalid UTF-8 is displayed as �; byte values and checksums remain exact.</p>
+    <script src="qr.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
